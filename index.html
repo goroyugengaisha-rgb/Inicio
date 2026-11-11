@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="pt" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Controles internos e recrutamento digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#F3F5FD;--bg2:#FBF3F7;--sf:#FFFFFF;--sf2:#F5F6FC;--bd:#E4E7F4;--tx:#26304A;--mu:#5B6482;--acc:#5B6CF0;--onacc:#FFFFFF;--accs:#EEF0FE;--sh:0 10px 30px rgba(70,84,160,.10);--t1:#E9ECFF;--t1f:#3F4FD0;--t2:#DDF4EA;--t2f:#17684E;--t3:#FFEBDC;--t3f:#8A4510;--warn:#FFF1E6;--warnt:#8A4510}
+:root[data-theme="dark"]{--bg1:#12141F;--bg2:#1A1626;--sf:#1B1E2E;--sf2:#232739;--bd:#2E3350;--tx:#ECEEF8;--mu:#A3A9C4;--acc:#8E9BFF;--onacc:#10122A;--accs:#272B45;--sh:0 10px 30px rgba(0,0,0,.35);--t1:#2A2F55;--t1f:#A9B4FF;--t2:#1C3A33;--t2f:#8FE0BE;--t3:#43301F;--t3f:#FFC99B;--warn:#43301F;--warnt:#FFC99B}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,var(--bg1),var(--bg2));font-family:'Plus Jakarta Sans','Noto Sans JP',system-ui,sans-serif;color:var(--tx);padding:28px 32px 64px}
+button{font:inherit;color:inherit}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+body.view-mobile{padding-left:16px;padding-right:16px}
+body.view-mobile .wrap{max-width:430px}
+body.view-mobile header{border-radius:28px}
+.card{background:var(--sf);border-radius:24px;box-shadow:var(--sh);border:1px solid var(--bd)}
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-radius:99px}
+.brand{display:flex;align-items:center;gap:14px}
+h1{margin:0;font-size:20px;font-weight:800;letter-spacing:-.01em}
+h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.01em}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.seg{display:flex;padding:4px;border-radius:99px;background:var(--sf2);border:1px solid var(--bd)}
+.seg button{border:0;background:transparent;padding:8px 14px;border-radius:99px;min-height:40px;font-size:14px;font-weight:600;cursor:pointer}
+.seg button:hover{background:var(--accs)}
+.seg button[aria-pressed="true"]{background:var(--acc);color:var(--onacc);font-weight:700}
+.sw{display:flex;align-items:center;gap:10px;cursor:pointer;min-height:44px;font-size:14px;font-weight:600}
+.sw input{position:absolute;opacity:0;width:1px;height:1px}
+.trk{width:44px;height:26px;border-radius:99px;background:var(--bd);position:relative;flex:none;transition:background .2s}
+.trk::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.sw input:checked + .trk{background:var(--acc)}
+.sw input:checked + .trk::after{transform:translateX(18px)}
+.sw input:focus-visible + .trk,button:focus-visible,a:focus-visible,.lang input:focus-visible + label,.dk:focus-visible + .dl .bx{outline:2px solid var(--acc);outline-offset:2px}
+.ic{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;flex:none}
+.ic.s{width:44px;height:44px;border-radius:14px}
+.t1{background:var(--t1);color:var(--t1f)}.t2{background:var(--t2);color:var(--t2f)}.t3{background:var(--t3);color:var(--t3f)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:99px;border:0;background:var(--acc);color:var(--onacc);font-size:15px;font-weight:700;min-height:48px;cursor:pointer;text-decoration:none;box-shadow:0 6px 16px rgba(91,108,240,.30)}
+.btn2{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:99px;border:1.5px solid var(--bd);background:var(--sf);color:var(--tx);font-size:14px;font-weight:700;min-height:44px;cursor:pointer;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}.btn2:hover{background:var(--accs)}
+.btn[disabled],.btn2[aria-disabled="true"],.btn[aria-disabled="true"]{opacity:.5;cursor:not-allowed;filter:none}
+.hero{padding:28px;display:flex;flex-wrap:wrap;align-items:center;gap:24px;background:linear-gradient(135deg,var(--t1),var(--sf) 70%)}
+.hero .ic{width:64px;height:64px;border-radius:20px;background:var(--sf);color:var(--t1f);box-shadow:var(--sh)}
+.hero .tx{flex:1 1 320px;display:flex;flex-direction:column;gap:6px}
+.hero b{font-size:20px;font-weight:800}
+.hero span.d,.sub{font-size:14px;line-height:1.55;color:var(--mu)}
+section{display:flex;flex-direction:column;gap:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+a.tile{display:flex;align-items:center;gap:16px;padding:20px;text-decoration:none;color:var(--tx);transition:transform .15s}
+a.tile:hover{transform:translateY(-2px)}
+a.tile[aria-disabled="true"]{opacity:.7}
+.tile .nm{flex:1;display:flex;flex-direction:column;gap:2px}.tile .nm b{font-size:17px;font-weight:800}.tile .nm span{font-size:13px;color:var(--mu)}
+.step{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--acc);color:var(--onacc);font-size:14px;font-weight:800;flex:none}
+.lang{display:flex;flex-wrap:wrap;gap:6px;padding:6px;border-radius:99px;background:var(--sf2);border:1px solid var(--bd)}
+.lang input{position:absolute;opacity:0;width:1px;height:1px}
+.lang label{flex:1 1 150px;display:flex;align-items:center;justify-content:center;padding:10px 16px;min-height:48px;border-radius:99px;font-size:15px;font-weight:700;cursor:pointer;text-align:center}
+.lang label:hover{background:var(--accs)}
+.lang input:checked + label{background:var(--acc);color:var(--onacc);box-shadow:0 4px 12px rgba(91,108,240,.30)}
+.doc{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:16px 22px;border-bottom:1px solid var(--bd)}
+.dk{position:absolute;opacity:0;width:1px;height:1px}
+.dl{flex:1 1 280px;display:flex;align-items:center;gap:14px;cursor:pointer;min-height:46px;font-size:17px;font-weight:700}
+.bx{width:26px;height:26px;border-radius:8px;border:2px solid var(--mu);flex:none;position:relative;background:var(--sf)}
+.dk:checked + .dl .bx{background:var(--acc);border-color:var(--acc)}
+.dk:checked + .dl .bx::after{content:"";position:absolute;left:7px;top:2px;width:6px;height:12px;border:solid var(--onacc);border-width:0 3px 3px 0;transform:rotate(45deg)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;background:var(--sf2)}
+.pillinfo{padding:6px 14px;border-radius:99px;background:var(--accs);color:var(--acc);font-size:13px;font-weight:700}
+.dash{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:20px 24px;border:2px dashed var(--bd);border-radius:24px;background:var(--sf)}
+.dash .nm{flex:1 1 260px;display:flex;flex-direction:column;gap:2px}.dash b{font-size:17px;font-weight:800}
+.warn{padding:6px 14px;border-radius:99px;background:var(--warn);color:var(--warnt);font-size:13px;font-weight:700}
+dialog{border:1px solid var(--bd);border-radius:24px;background:var(--sf);color:var(--tx);padding:24px;max-width:min(520px,92vw);box-shadow:var(--sh)}
+dialog::backdrop{background:rgba(10,12,24,.5)}
+dialog label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700;margin-top:14px}
+dialog input[type=text],dialog select{font:inherit;padding:10px 14px;border-radius:12px;border:1.5px solid var(--bd);background:var(--sf2);color:var(--tx);min-height:44px}
+dialog pre{margin:14px 0 0;padding:12px;border-radius:12px;background:var(--sf2);border:1px solid var(--bd);font-size:12px;white-space:pre-wrap;word-break:break-all}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);padding:12px 20px;border-radius:99px;background:var(--tx);color:var(--sf);font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="card">
+  <div class="brand">
+    <span class="ic s t1" id="logo"></span>
+    <h1 data-i="title"></h1>
+  </div>
+  <div class="tools">
+    <div class="seg" role="group" id="langSeg" aria-label="Idioma / Language / 言語"></div>
+    <div class="seg" role="group" id="viewSeg" data-aria="viewMode"></div>
+    <label class="sw"><input type="checkbox" id="themeSw"><span class="trk"></span><span data-i="dark"></span></label>
+  </div>
+</header>
+
+<section>
+  <div class="card hero">
+    <span class="ic" id="formIcon"></span>
+    <div class="tx"><b data-i="formTitle"></b><span class="d" data-i="formDesc"></span></div>
+    <button type="button" class="btn" id="copyForm"><span id="copyIcon"></span><span data-i="copy"></span></button>
+  </div>
+</section>
+
+<section>
+  <h2 data-i="teamTitle"></h2>
+  <div class="grid" id="team"></div>
+</section>
+
+<section>
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <h2 data-i="pdfTitle"></h2>
+    <p class="sub" style="margin:0;font-size:15px" data-i="pdfSub"></p>
+  </div>
+  <div class="card" style="padding:24px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:12px"><span class="step">1</span><b style="font-size:16px;font-weight:800" data-i="step1"></b></div>
+    <div class="lang" role="radiogroup" id="pdfLang" data-aria="step1"></div>
+  </div>
+  <div class="card" style="overflow:hidden">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:20px 22px 14px">
+      <div style="display:flex;align-items:center;gap:12px"><span class="step">2</span><b style="font-size:16px;font-weight:800" data-i="step2"></b></div>
+      <span class="pillinfo" id="curLang"></span>
+    </div>
+    <div id="docs"></div>
+    <div class="bar">
+      <span style="font-size:15px;font-weight:700" id="selCount"></span>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <button type="button" class="btn2" id="selAll" data-i="selAll"></button>
+        <button type="button" class="btn" id="shareSel"><span id="shareIcon"></span><span data-i="shareSel"></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-i="buildTitle"></h2>
+  <div id="building" style="display:flex;flex-direction:column;gap:12px"></div>
+  <div><button type="button" class="btn2" id="addBtn"><span id="plusIcon"></span><span data-i="add"></span></button></div>
+</section>
+
+</div>
+
+<dialog id="dlg">
+  <form method="dialog" style="margin:0">
+    <h2 style="font-size:20px" data-i="addTitle"></h2>
+    <p class="sub" data-i="addHelp"></p>
+    <label class="f"><span data-i="addName"></span><input type="text" id="gName"></label>
+    <label class="f"><span data-i="addUrl"></span><input type="text" id="gUrl" inputmode="url" placeholder="https://"></label>
+    <label class="f"><span data-i="addWhere"></span><select id="gWhere"><option value="building" data-i="optBuilding"></option><option value="pdf" data-i="optPdf"></option></select></label>
+    <pre id="gOut"></pre>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px">
+      <button type="button" class="btn" id="gCopy" data-i="copyCode"></button>
+      <button class="btn2" data-i="close"></button>
+    </div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="links.js"></script>
+<script>
+(function(){
+var S=window.SITE||{form:{url:''},team:[],pdfs:[],building:[]};
+
+/* ---------- textos (PT / EN / 日本語) ---------- */
+var T={
+pt:{title:'Controles internos e recrutamento digital',dark:'Tema escuro',viewMode:'Modo de exibição',auto:'Automático',pc:'PC',mobile:'Celular',
+formTitle:'Formulário de currículo e questionário',formDesc:'Os dados vão direto para a planilha. Peça para o candidato abrir o link no navegador (Chrome ou Safari), fora do WhatsApp e de outros apps.',
+copy:'Copiar link',copied:'Link copiado',noLink:'Link ainda não configurado',
+teamTitle:'Controles da equipe',
+planilha:['Planilha de currículos','Respostas e ficha em PDF'],imoveis:['Controle de Imóveis','Apartamentos e moradores'],uniformes:['Estoque de Uniformes','Estoque e pedidos'],
+pdfTitle:'PDFs para enviar ao candidato',pdfSub:'Escolha o idioma, marque os documentos e envie todos de uma vez por WhatsApp, LINE ou Messenger.',
+step1:'Idioma do PDF',step2:'Escolha os documentos',langLabel:'Idioma',open:'Abrir',selAll:'Selecionar todos',selNone:'Limpar seleção',shareSel:'Compartilhar selecionados',
+selected:' selecionado(s)',nothing:'Marque pelo menos um documento',missing:'Alguns documentos ainda não têm link neste idioma',sharedCopied:'Links copiados. Cole na conversa.',
+buildTitle:'Em construção',building:'Em construção',add:'Adicionar novo link ou PDF',
+addTitle:'Adicionar novo link',addHelp:'Preencha, copie o código e cole em links.js (no GitHub). A página atualiza sozinha.',addName:'Nome',addUrl:'Endereço (URL)',addWhere:'Onde entra',optBuilding:'Em construção',optPdf:'PDF (um idioma)',copyCode:'Copiar código',close:'Fechar',codeCopied:'Código copiado'},
+en:{title:'Internal controls and digital recruiting',dark:'Dark theme',viewMode:'Display mode',auto:'Auto',pc:'PC',mobile:'Phone',
+formTitle:'Résumé and questionnaire form',formDesc:'Answers go straight to the spreadsheet. Ask the candidate to open the link in a browser (Chrome or Safari), not inside WhatsApp or other apps.',
+copy:'Copy link',copied:'Link copied',noLink:'Link not set yet',
+teamTitle:'Team controls',
+planilha:['Résumé spreadsheet','Answers and PDF sheet'],imoveis:['Housing control','Apartments and residents'],uniformes:['Uniform stock','Stock and orders'],
+pdfTitle:'PDFs to send to candidates',pdfSub:'Pick the language, tick the documents and send them all at once by WhatsApp, LINE or Messenger.',
+step1:'PDF language',step2:'Choose the documents',langLabel:'Language',open:'Open',selAll:'Select all',selNone:'Clear selection',shareSel:'Share selected',
+selected:' selected',nothing:'Tick at least one document',missing:'Some documents have no link in this language yet',sharedCopied:'Links copied. Paste them in the chat.',
+buildTitle:'Under construction',building:'Under construction',add:'Add new link or PDF',
+addTitle:'Add a new link',addHelp:'Fill in, copy the code and paste it into links.js (on GitHub). The page updates by itself.',addName:'Name',addUrl:'Address (URL)',addWhere:'Where it goes',optBuilding:'Under construction',optPdf:'PDF (one language)',copyCode:'Copy code',close:'Close',codeCopied:'Code copied'},
+ja:{title:'社内管理と採用のデジタル化',dark:'ダークテーマ',viewMode:'表示モード',auto:'自動',pc:'PC',mobile:'スマホ',
+formTitle:'履歴書・アンケートフォーム',formDesc:'回答はそのままスプレッドシートに送られます。候補者にはWhatsAppなどのアプリ内ではなく、ブラウザ（ChromeまたはSafari）でリンクを開くよう伝えてください。',
+copy:'リンクをコピー',copied:'リンクをコピーしました',noLink:'リンクが未設定です',
+teamTitle:'チーム用管理',
+planilha:['履歴書スプレッドシート','回答とPDFシート'],imoveis:['物件管理','アパートと入居者'],uniformes:['ユニフォーム在庫','在庫と注文'],
+pdfTitle:'候補者に送るPDF',pdfSub:'言語を選び、書類にチェックを入れて、WhatsApp・LINE・Messengerでまとめて送れます。',
+step1:'PDFの言語',step2:'書類を選ぶ',langLabel:'言語',open:'開く',selAll:'すべて選択',selNone:'選択を解除',shareSel:'選択したものを共有',
+selected:'件選択中',nothing:'書類を1つ以上選んでください',missing:'この言語のリンクが未設定の書類があります',sharedCopied:'リンクをコピーしました。チャットに貼り付けてください。',
+buildTitle:'準備中',building:'準備中',add:'新しいリンク・PDFを追加',
+addTitle:'新しいリンクを追加',addHelp:'入力してコードをコピーし、links.js（GitHub上）に貼り付けてください。ページは自動で更新されます。',addName:'名称',addUrl:'アドレス（URL）',addWhere:'追加先',optBuilding:'準備中',optPdf:'PDF（1言語）',copyCode:'コードをコピー',close:'閉じる',codeCopied:'コードをコピーしました'}
+};
+var PDFL=[['pt','Português · 日本語'],['en','English · 日本語'],['fil','Filipino · 日本語'],['ja','日本語']];
+var SITELANG=[['pt','PT'],['en','EN'],['ja','日本語']];
+
+/* ---------- ícones ---------- */
+function svg(p,w){w=w||24;return '<svg width="'+w+'" height="'+w+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+'</svg>'}
+var I={
+grid:'<rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/>',
+form:'<rect x="6" y="4" width="12" height="17" rx="3"/><path d="M9 4h6v3H9z"/><path d="M9 12h6M9 16h4"/>',
+sheet:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 4v16"/>',
+build:'<path d="M5 21V4h9v17"/><path d="M14 9h5v12"/><path d="M8 8h3M8 12h3M8 16h3"/><path d="M3 21h18"/>',
+box:'<path d="M4 8l8-4 8 4v9l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v9"/>',
+home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
+doc:'<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h4"/>',
+factory:'<path d="M4 20V10l5 3V9l5 3V6h6v14z"/>',
+copy:'<rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6a2 2 0 012-2h9"/>',
+share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/>',
+plus:'<path d="M12 5v14M5 12h14"/>',
+arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>'
+};
+
+/* ---------- preferências (guardadas só neste navegador) ---------- */
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+var lang=store('lang');
+if(!T[lang]){var nl=(navigator.language||'pt').slice(0,2);lang=T[nl]?nl:'pt'}
+var theme=store('theme');
+if(theme!=='dark'&&theme!=='light'){theme=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+var view=store('view')||'auto';
+var pdfLang=store('pdflang');if(!PDFL.some(function(x){return x[0]===pdfLang}))pdfLang='pt';
+var selected={};   /* índices dos PDFs marcados */
+
+function $(id){return document.getElementById(id)}
+function tt(k){return T[lang][k]}
+function toast(msg){var t=$('toast');t.textContent=msg;t.className='toast on';clearTimeout(toast.h);toast.h=setTimeout(function(){t.className='toast'},2200)}
+function copyText(txt){
+  if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(txt)}
+  return new Promise(function(res,rej){var a=document.createElement('textarea');a.value=txt;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')?res():rej()}catch(e){rej(e)}document.body.removeChild(a)});
+}
+
+/* ---------- desenho da página ---------- */
+function applyTheme(){document.documentElement.setAttribute('data-theme',theme);$('themeSw').checked=theme==='dark'}
+function applyView(){document.body.classList.toggle('view-mobile',view==='mobile')}
+function segs(){
+  var L=$('langSeg');L.innerHTML='';
+  SITELANG.forEach(function(x){var b=document.createElement('button');b.type='button';b.textContent=x[1];b.setAttribute('aria-pressed',lang===x[0]);b.onclick=function(){lang=x[0];store('lang',lang);render()};L.appendChild(b)});
+  var V=$('viewSeg');V.innerHTML='';V.setAttribute('aria-label',tt('viewMode'));
+  [['auto','auto'],['pc','pc'],['mobile','mobile']].forEach(function(x){var b=document.createElement('button');b.type='button';b.textContent=tt(x[1]);b.setAttribute('aria-pressed',view===x[0]);b.onclick=function(){view=x[0];store('view',view);applyView();segs()};V.appendChild(b)});
+}
+function pdfLangUI(){
+  var G=$('pdfLang');G.innerHTML='';G.setAttribute('aria-label',tt('step1'));
+  PDFL.forEach(function(x){
+    var i=document.createElement('input');i.type='radio';i.name='pdflang';i.id='pl_'+x[0];i.checked=pdfLang===x[0];
+    i.onchange=function(){pdfLang=x[0];store('pdflang',pdfLang);docsUI()};
+    var l=document.createElement('label');l.htmlFor=i.id;l.textContent=x[1];
+    G.appendChild(i);G.appendChild(l);
+  });
+}
+function docsUI(){
+  var D=$('docs');D.innerHTML='';
+  var names=PDFL.filter(function(x){return x[0]===pdfLang})[0][1];
+  $('curLang').textContent=tt('langLabel')+': '+names;
+  S.pdfs.forEach(function(p,n){
+    var row=document.createElement('div');row.className='doc';
+    var ck=document.createElement('input');ck.type='checkbox';ck.className='dk';ck.id='dk'+n;ck.checked=!!selected[n];
+    ck.onchange=function(){selected[n]=ck.checked;count()};
+    var lb=document.createElement('label');lb.className='dl';lb.htmlFor=ck.id;
+    lb.innerHTML='<span class="bx"></span><span class="ic s t'+(p.tone||1)+'">'+svg(I[p.icon]||I.doc)+'</span>';
+    var nm=document.createElement('span');nm.textContent=(p.title&&(p.title[lang]||p.title.pt))||'';lb.appendChild(nm);
+    var url=(p.files&&p.files[pdfLang])||'';
+    var a=document.createElement('a');a.className='btn2';a.textContent=tt('open');
+    if(url){a.href=url;a.target='_blank';a.rel='noopener'}else{a.setAttribute('aria-disabled','true');a.title=tt('noLink');a.onclick=function(e){e.preventDefault();toast(tt('noLink'))}}
+    row.appendChild(ck);row.appendChild(lb);row.appendChild(a);D.appendChild(row);
+  });
+  if(D.lastChild)D.lastChild.style.borderBottom='0';
+  count();
+}
+function count(){var n=0;for(var k in selected)if(selected[k])n++;$('selCount').textContent=(lang==='ja'?n+tt('selected'):n+tt('selected'));$('selAll').textContent=n===S.pdfs.length&&n>0?tt('selNone'):tt('selAll')}
+function teamUI(){
+  var G=$('team');G.innerHTML='';
+  S.team.forEach(function(t){
+    var info=T[lang][t.id]||[t.id,''];
+    var a=document.createElement('a');a.className='card tile';
+    if(t.url){a.href=t.url;a.target='_blank';a.rel='noopener'}else{a.setAttribute('aria-disabled','true');a.href='#';a.title=tt('noLink');a.onclick=function(e){e.preventDefault();toast(tt('noLink'))}}
+    a.innerHTML='<span class="ic t'+(t.tone||1)+'">'+svg(I[t.icon]||I.grid,26)+'</span><span class="nm"><b></b><span></span></span><span style="color:var(--acc)">'+svg(I.arrow,20)+'</span>';
+    a.querySelector('b').textContent=info[0];a.querySelector('.nm span').textContent=info[1];
+    G.appendChild(a);
+  });
+}
+function buildingUI(){
+  var B=$('building');B.innerHTML='';
+  S.building.forEach(function(b){
+    var d=document.createElement('div');d.className='dash';
+    d.innerHTML='<span class="nm"><b></b></span><span class="warn"></span>';
+    d.querySelector('b').textContent=(b.title&&(b.title[lang]||b.title.pt))||'';
+    d.querySelector('.warn').textContent=tt('building');
+    if(b.url){var a=document.createElement('a');a.className='btn2';a.textContent=tt('open');a.href=b.url;a.target='_blank';a.rel='noopener';d.appendChild(a)}
+    B.appendChild(d);
+  });
+}
+function render(){
+  document.documentElement.lang=lang==='ja'?'ja':lang;
+  document.title=tt('title');
+  [].forEach.call(document.querySelectorAll('[data-i]'),function(e){var v=tt(e.getAttribute('data-i'));if(v!=null)e.textContent=v});
+  $('logo').innerHTML=svg(I.grid,22);$('formIcon').innerHTML=svg(I.form,30);$('copyIcon').innerHTML=svg(I.copy,18);$('shareIcon').innerHTML=svg(I.share,18);$('plusIcon').innerHTML=svg(I.plus,18);
+  $('formIcon').className='ic t1';$('formIcon').style.background='var(--sf)';
+  segs();pdfLangUI();docsUI();teamUI();buildingUI();gen();
+}
+
+/* ---------- ações ---------- */
+$('themeSw').onchange=function(){theme=this.checked?'dark':'light';store('theme',theme);applyTheme()};
+$('copyForm').onclick=function(){
+  var u=(S.form&&S.form.url)||'';if(!u){toast(tt('noLink'));return}
+  copyText(u).then(function(){toast(tt('copied'))},function(){window.prompt(tt('copy'),u)});
+};
+$('selAll').onclick=function(){var all=true;S.pdfs.forEach(function(_,n){if(!selected[n])all=false});S.pdfs.forEach(function(_,n){selected[n]=!all});docsUI()};
+$('shareSel').onclick=function(){
+  var items=[],miss=false;
+  S.pdfs.forEach(function(p,n){if(!selected[n])return;var u=(p.files&&p.files[pdfLang])||'';if(u)items.push((p.title[lang]||p.title.pt)+'\n'+u);else miss=true});
+  if(!items.length){toast(miss?tt('missing'):tt('nothing'));return}
+  var text=items.join('\n\n');
+  if(miss)toast(tt('missing'));
+  if(navigator.share){navigator.share({text:text}).catch(function(e){if(e&&e.name!=='AbortError')copyText(text).then(function(){toast(tt('sharedCopied'))})})}
+  else{copyText(text).then(function(){toast(tt('sharedCopied'))},function(){window.prompt(tt('shareSel'),text)})}
+};
+function gen(){
+  var n=$('gName').value||'Nome',u=$('gUrl').value||'';
+  var q=function(s){return "'"+String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'")+"'"};
+  var out=$('gWhere').value==='pdf'
+   ?"{ icon: 'doc', tone: 1,\n  title: { pt: "+q(n)+", en: "+q(n)+", ja: "+q(n)+" },\n  files: { pt: "+q(u)+", en: '', fil: '', ja: '' } },"
+   :"{ title: { pt: "+q(n)+", en: "+q(n)+", ja: "+q(n)+" }, url: "+q(u)+" },";
+  $('gOut').textContent=out;
+}
+$('addBtn').onclick=function(){gen();$('dlg').showModal()};
+['gName','gUrl','gWhere'].forEach(function(id){$(id).oninput=gen;$(id).onchange=gen});
+$('gCopy').onclick=function(){copyText($('gOut').textContent).then(function(){toast(tt('codeCopied'))},function(){})};
+
+applyTheme();applyView();render();
+})();
+</script>
+</body>
+</html>
