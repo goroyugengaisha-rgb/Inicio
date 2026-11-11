@@ -21,7 +21,7 @@ window.SITE = {
   pdfs: [
     { icon: 'home', tone: 2,
       title: { pt: 'Termos de mudança', en: 'Moving terms', ja: '引っ越しに関する規約' },
-      files: { pt: '', en: '', fil: '', ja: '' } },
+      files: { pt: 'https://SEU-USUARIO.github.io/inicio/mudanca-pt.pdf', en: 'https://SEU-USUARIO.github.io/inicio/mudanca-en.pdf', fil: 'https://SEU-USUARIO.github.io/inicio/mudanca-fil.pdf', ja: 'https://SEU-USUARIO.github.io/inicio/mudanca-ja.pdf' } },
     { icon: 'build', tone: 3,
       title: { pt: 'Termos de utilização do apartamento', en: 'Apartment usage terms', ja: '社宅（アパート）利用規約' },
       files: { pt: '', en: '', fil: '', ja: '' } },
