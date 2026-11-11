@@ -21,7 +21,7 @@ window.SITE = {
   pdfs: [
     { icon: 'home', tone: 2,
       title: { pt: 'Termos de mudança', en: 'Moving terms', ja: '引っ越しに関する規約' },
-      files: { pt: 'https://github.com/goroyugengaisha-rgb.io/Inicio/mudanca-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-ja.pdf' } },
+      files: { pt: 'https://github.com/goroyugengaisha-rgb.github.io/Inicio/mudanca-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-ja.pdf' } },
     { icon: 'build', tone: 3,
       title: { pt: 'Termos de utilização do apartamento', en: 'Apartment usage terms', ja: '社宅（アパート）利用規約' },
       files: { pt: '', en: '', fil: '', ja: '' } },
