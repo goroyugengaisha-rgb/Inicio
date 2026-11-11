@@ -7,7 +7,7 @@
 window.SITE = {
 
   /* Formulário que o candidato recebe (só o botão "Copiar link") */
-  form: { url: '' },
+  form: { url: 'https://goroyugengaisha-rgb.github.io/curriculo-goro/' },
 
   /* Controles da equipe */
   team: [
