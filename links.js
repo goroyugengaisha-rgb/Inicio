@@ -24,7 +24,7 @@ window.SITE = {
       files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-ja.pdf' } },
     { icon: 'build', tone: 3,
       title: { pt: 'Termos de utilização do apartamento', en: 'Apartment usage terms', ja: '社宅（アパート）利用規約' },
-      files: { pt: '', en: '', fil: '', ja: '' } },
+      files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-en.pdf', fil: 'goroyugengaisha-rgb.github.io/Inicio/apartamento-fil.pdf', ja: 'goroyugengaisha-rgb.github.io/Inicio/apartamento-ja.pdf' } },
     { icon: 'doc', tone: 1,
       title: { pt: 'Documentos para o cadastro na empresa', en: 'Documents for company registration', ja: '入社登録に必要な書類' },
       files: { pt: '', en: '', fil: '', ja: '' } },
