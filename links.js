@@ -27,7 +27,7 @@ window.SITE = {
       files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-en.pdf', fil: 'goroyugengaisha-rgb.github.io/Inicio/apartamento-fil.pdf', ja: 'goroyugengaisha-rgb.github.io/Inicio/apartamento-ja.pdf' } },
     { icon: 'doc', tone: 1,
       title: { pt: 'Documentos para o cadastro na empresa', en: 'Documents for company registration', ja: '入社登録に必要な書類' },
-      files: { pt: '', en: '', fil: '', ja: '' } },
+      files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-ja.pdf' } },
     { icon: 'factory', tone: 2,
       title: { pt: 'Regras básicas da fábrica', en: 'Basic factory rules', ja: '工場の基本ルール' },
       files: { pt: '', en: '', fil: '', ja: '' } }
