@@ -30,7 +30,7 @@ window.SITE = {
       files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-ja.pdf' } },
     { icon: 'factory', tone: 2,
       title: { pt: 'Regras básicas da fábrica', en: 'Basic factory rules', ja: '工場の基本ルール' },
-      files: { pt: '', en: '', fil: '', ja: '' } }
+      files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/regras-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/regras-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/regras-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/regras-ja.pdf' } }
   ],
 
   /* Em construção: formulários e links ainda não prontos */
