@@ -7,10 +7,10 @@
 window.SITE = {
 
   /* Formulário que o candidato recebe (só o botão "Copiar link") */
-  form: { url: '' },
+  form: { url: 'https://goroyugengaisha-rgb.github.io/curriculo-goro/' },
 
   /* Controles da equipe */
-team: [
+  team: [
     { id: 'planilha',  icon: 'sheet', tone: 1, url: 'https://docs.google.com/spreadsheets/d/1VSzFCFtDu84dxpz9n_Vsfi9FTTjWkaTQ3ye2DAVTFaw/edit?gid=0#gid=0' },
     { id: 'imoveis',   icon: 'build', tone: 2, url: 'https://goroyugengaisha-rgb.github.io/apartamentos/' },
     { id: 'uniformes', icon: 'box',   tone: 3, url: 'https://goroyugengaisha-rgb.github.io/Estoque-de-Uniformes-/' }
@@ -24,7 +24,7 @@ team: [
       files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/mudanca-ja.pdf' } },
     { icon: 'build', tone: 3,
       title: { pt: 'Termos de utilização do apartamento', en: 'Apartment usage terms', ja: '社宅（アパート）利用規約' },
-      files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-en.pdf', fil: 'en: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-ja.pdf' } },
+      files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/apartamento-ja.pdf' } },
     { icon: 'doc', tone: 1,
       title: { pt: 'Documentos para o cadastro na empresa', en: 'Documents for company registration', ja: '入社登録に必要な書類' },
       files: { pt: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-pt.pdf', en: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-en.pdf', fil: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-fil.pdf', ja: 'https://goroyugengaisha-rgb.github.io/Inicio/cadastro-ja.pdf' } },
