@@ -12,10 +12,9 @@ window.SITE = {
   /* Controles da equipe */
     team: [
     { id: 'planilha',  icon: 'sheet', tone: 1, url: 'https://docs.google.com/spreadsheets/d/1VSzFCFtDu84dxpz9n_Vsfi9FTTjWkaTQ3ye2DAVTFaw/edit?gid=0#gid=0' },
-    { id: 'imoveis',   icon: 'build', tone: 2, url: '' },
+    { id: 'imoveis',   icon: 'build', tone: 2, url: 'https://goroyugengaisha-rgb.github.io/apartamentos/' },
     { id: 'uniformes', icon: 'box',   tone: 3, url: 'https://goroyugengaisha-rgb.github.io/Estoque-de-Uniformes-/' }
   ],
-
   /* PDFs para enviar. pt = Português+日本語, en = English+日本語,
      fil = Filipino+日本語, ja = só japonês */
   pdfs: [
