@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#16169a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GORO">
 <title>Controles internos e recrutamento digital</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -89,6 +97,7 @@ dialog pre{margin:14px 0 0;padding:12px;border-radius:12px;background:var(--sf2)
   <div class="tools">
     <div class="seg" role="group" id="langSeg" aria-label="Idioma / Language / 言語"></div>
     <div class="seg" role="group" id="viewSeg" data-aria="viewMode"></div>
+    <button type="button" class="btn2" id="installBtn" hidden data-i="install"></button>
     <label class="sw"><input type="checkbox" id="themeSw"><span class="trk"></span><span data-i="dark"></span></label>
   </div>
 </header>
@@ -153,6 +162,13 @@ dialog pre{margin:14px 0 0;padding:12px;border-radius:12px;background:var(--sf2)
     </div>
   </form>
 </dialog>
+<dialog id="iosDlg">
+  <form method="dialog" style="margin:0">
+    <h2 style="font-size:20px" data-i="install"></h2>
+    <p class="sub" data-i="iosHelp"></p>
+    <div style="margin-top:16px"><button class="btn2" data-i="close"></button></div>
+  </form>
+</dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="links.js"></script>
@@ -171,7 +187,7 @@ pdfTitle:'PDFs para enviar ao candidato',pdfSub:'Escolha o idioma, marque os doc
 step1:'Idioma do PDF',step2:'Escolha os documentos',langLabel:'Idioma',open:'Abrir',selAll:'Selecionar todos',selNone:'Limpar seleção',shareSel:'Compartilhar selecionados',
 selected:' selecionado(s)',nothing:'Marque pelo menos um documento',missing:'Alguns documentos ainda não têm link neste idioma',sharedCopied:'Links copiados. Cole na conversa.',
 buildTitle:'Em construção',building:'Em construção',add:'Adicionar novo link ou PDF',
-addTitle:'Adicionar novo link',addHelp:'Preencha, copie o código e cole em links.js (no GitHub). A página atualiza sozinha.',addName:'Nome',addUrl:'Endereço (URL)',addWhere:'Onde entra',optBuilding:'Em construção',optPdf:'PDF (um idioma)',copyCode:'Copiar código',close:'Fechar',codeCopied:'Código copiado'},
+addTitle:'Adicionar novo link',addHelp:'Preencha, copie o código e cole em links.js (no GitHub). A página atualiza sozinha.',addName:'Nome',addUrl:'Endereço (URL)',addWhere:'Onde entra',optBuilding:'Em construção',optPdf:'PDF (um idioma)',copyCode:'Copiar código',close:'Fechar',codeCopied:'Código copiado',install:'Instalar atalho',iosHelp:'No iPhone/iPad (Safari): toque no botão Compartilhar (quadrado com seta) e escolha “Adicionar à Tela de Início”.'},
 en:{title:'Internal controls and digital recruiting',dark:'Dark theme',viewMode:'Display mode',auto:'Auto',pc:'PC',mobile:'Phone',
 formTitle:'Résumé and questionnaire form',formDesc:'Answers go straight to the spreadsheet. Ask the candidate to open the link in a browser (Chrome or Safari), not inside WhatsApp or other apps.',
 copy:'Copy link',copied:'Link copied',noLink:'Link not set yet',
@@ -181,7 +197,7 @@ pdfTitle:'PDFs to send to candidates',pdfSub:'Pick the language, tick the docume
 step1:'PDF language',step2:'Choose the documents',langLabel:'Language',open:'Open',selAll:'Select all',selNone:'Clear selection',shareSel:'Share selected',
 selected:' selected',nothing:'Tick at least one document',missing:'Some documents have no link in this language yet',sharedCopied:'Links copied. Paste them in the chat.',
 buildTitle:'Under construction',building:'Under construction',add:'Add new link or PDF',
-addTitle:'Add a new link',addHelp:'Fill in, copy the code and paste it into links.js (on GitHub). The page updates by itself.',addName:'Name',addUrl:'Address (URL)',addWhere:'Where it goes',optBuilding:'Under construction',optPdf:'PDF (one language)',copyCode:'Copy code',close:'Close',codeCopied:'Code copied'},
+addTitle:'Add a new link',addHelp:'Fill in, copy the code and paste it into links.js (on GitHub). The page updates by itself.',addName:'Name',addUrl:'Address (URL)',addWhere:'Where it goes',optBuilding:'Under construction',optPdf:'PDF (one language)',copyCode:'Copy code',close:'Close',codeCopied:'Code copied',install:'Install shortcut',iosHelp:'On iPhone/iPad (Safari): tap the Share button (square with arrow) and choose “Add to Home Screen”.'},
 ja:{title:'社内管理と採用のデジタル化',dark:'ダークテーマ',viewMode:'表示モード',auto:'自動',pc:'PC',mobile:'スマホ',
 formTitle:'履歴書・アンケートフォーム',formDesc:'回答はそのままスプレッドシートに送られます。候補者にはWhatsAppなどのアプリ内ではなく、ブラウザ（ChromeまたはSafari）でリンクを開くよう伝えてください。',
 copy:'リンクをコピー',copied:'リンクをコピーしました',noLink:'リンクが未設定です',
@@ -191,7 +207,7 @@ pdfTitle:'候補者に送るPDF',pdfSub:'言語を選び、書類にチェック
 step1:'PDFの言語',step2:'書類を選ぶ',langLabel:'言語',open:'開く',selAll:'すべて選択',selNone:'選択を解除',shareSel:'選択したものを共有',
 selected:'件選択中',nothing:'書類を1つ以上選んでください',missing:'この言語のリンクが未設定の書類があります',sharedCopied:'リンクをコピーしました。チャットに貼り付けてください。',
 buildTitle:'準備中',building:'準備中',add:'新しいリンク・PDFを追加',
-addTitle:'新しいリンクを追加',addHelp:'入力してコードをコピーし、links.js（GitHub上）に貼り付けてください。ページは自動で更新されます。',addName:'名称',addUrl:'アドレス（URL）',addWhere:'追加先',optBuilding:'準備中',optPdf:'PDF（1言語）',copyCode:'コードをコピー',close:'閉じる',codeCopied:'コードをコピーしました'}
+addTitle:'新しいリンクを追加',addHelp:'入力してコードをコピーし、links.js（GitHub上）に貼り付けてください。ページは自動で更新されます。',addName:'名称',addUrl:'アドレス（URL）',addWhere:'追加先',optBuilding:'準備中',optPdf:'PDF（1言語）',copyCode:'コードをコピー',close:'閉じる',codeCopied:'コードをコピーしました',install:'ホーム画面に追加',iosHelp:'iPhone/iPad（Safari）：共有ボタン（四角と矢印）をタップし、「ホーム画面に追加」を選んでください。'}
 };
 var PDFL=[['pt','Português · 日本語'],['en','English · 日本語'],['fil','Filipino · 日本語'],['ja','日本語']];
 var SITELANG=[['pt','PT'],['en','EN'],['ja','日本語']];
@@ -329,6 +345,21 @@ $('addBtn').onclick=function(){gen();$('dlg').showModal()};
 $('gCopy').onclick=function(){copyText($('gOut').textContent).then(function(){toast(tt('codeCopied'))},function(){})};
 
 applyTheme();applyView();render();
+})();
+/* instalar como app */
+(function(){
+var btn=document.getElementById('installBtn'),dp=null;
+var standalone=window.matchMedia&&matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+if(standalone||!btn)return;
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;btn.hidden=false});
+window.addEventListener('appinstalled',function(){btn.hidden=true;dp=null});
+if(ios)btn.hidden=false;
+btn.onclick=function(){
+ if(dp){dp.prompt();dp.userChoice.then(function(){dp=null;btn.hidden=true},function(){})}
+ else{var d=document.getElementById('iosDlg');if(d.showModal)d.showModal()}
+};
+if('serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js').catch(function(){})}catch(e){}}
 })();
 </script>
 </body>
